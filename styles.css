@@ -1,0 +1,82 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-size: 62.5%;
+}
+h1{
+    text-align: center;
+}
+.container{
+    font-size: 1.8rem;
+    margin-top: 40px;
+
+}
+td {
+    border: 1px solid black;
+    padding: 10px;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+  }
+
+.coordenadas th{
+    padding: 5px;
+    border-color:#1b1a1a;color:#fff;
+    background-color:#6eb60a;
+    border: 1px;   
+}  
+table {
+    margin: auto;
+}
+.card{
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse
+}
+
+.card .td_card{
+    border: none;
+    box-shadow: none;
+}
+
+label {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+input[type=text], input[type=tel] {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+    width: 100%;
+}
+
+input[type=submit],
+button{
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+input[type=submit]:hover {
+    background-color: #3e8e41;
+}
+button{
+    background-color: #c02112;
+}
+button:hover{
+    background-color: #8a1308;
+}
+
+input[type=radio] {
+    margin-right: 10px;
+}
+

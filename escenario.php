@@ -1,4 +1,6 @@
 <?php
+/*La función utiliza la etiqueta "<td>" para mostrar cada valor 
+de la matriz en una celda de la tabla utilizando un bucle "for" anidado,*/
 function escenario($matrizEscenario){
     echo "<table class='coordenadas'>";
         echo "<tr>
