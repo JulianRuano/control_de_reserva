@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Escenario</title>
+    <!--Alertas sweetalert2--> 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
 </head>
 <body>
     <div class="container">
@@ -12,20 +14,21 @@
         <table>
         <?php 
             require("escenario.php"); 
+            require("control.php");
             if(isset($_POST["Enviar"])){
-
-                $StringEscenario = $_POST['matrizEscenario'];
+                $cadenaEscenario = $_POST['matrizEscenario'];
                 $count = 0;
                 foreach (range(0, 4) as $i) {
                     foreach (range(0, 4) as $j) {
                         $count = 5 * $i + $j;
-                        $matrizEscenario[$i][$j] = substr($StringEscenario, $count, 1);
+                        $matrizEscenario[$i][$j] = substr($cadenaEscenario, $count, 1);
                     }
                     $count = 0;
                 }
+                $matrizEscenario=control($_POST['fila'],$_POST['puesto'],$_POST['valor'],$matrizEscenario);
                 escenario($matrizEscenario);
-          }
-          else if(isset($_REQUEST["Reset"]) || !isset($_REQUEST["Enviar"])){
+            }
+            else if(isset($_REQUEST["Reset"]) || !isset($_REQUEST["Enviar"])){
 
             //En este código, usamos la función range para crear un rango de valores de 1 a 5, 
             //y luego usamos un bucle foreach para iterar sobre cada valor en el rango
@@ -101,8 +104,6 @@
                 </form>
             </table>   
         </div>
-        
-
-    </div>   
+    </div> 
 </body>
 </html>
