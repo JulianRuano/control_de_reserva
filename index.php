@@ -9,12 +9,50 @@
 <body>
     <div class="container">
         <h1>Escenario</h1>
+        <table>
+        <?php 
+            require("escenario.php"); 
+            if(isset($_POST["Enviar"])){
+
+                $StringEscenario = $_POST['matrizEscenario'];
+                $count = 0;
+                foreach (range(0, 4) as $i) {
+                    foreach (range(0, 4) as $j) {
+                        $count = 5 * $i + $j;
+                        $matrizEscenario[$i][$j] = substr($StringEscenario, $count, 1);
+                    }
+                    $count = 0;
+                }
+                escenario($matrizEscenario);
+          }
+          else if(isset($_REQUEST["Reset"]) || !isset($_REQUEST["Enviar"])){
+
+            //En este código, usamos la función range para crear un rango de valores de 1 a 5, 
+            //y luego usamos un bucle foreach para iterar sobre cada valor en el rango
+            $matrizEscenario = array();
+            foreach (range(1, 5) as $i) {
+                $fila = array();
+                foreach (range(1, 5) as $j) {
+                    $fila[] = "L";
+                }
+                $matrizEscenario[] = $fila;
+            }
+            escenario($matrizEscenario);
+            }          
+        ?>
+        </table>
 
         
         <div class="card">
             <table>
                 <form method="post">
-                    <input type="text" name="matrizEscenario" value="">
+                    <input type="text" name="matrizEscenario" style="display:none" 
+                    value="<?php 
+                                foreach ($matrizEscenario as $fila) {
+                                    foreach ($fila as $puesto){
+                                        echo $puesto;
+                                }
+                            }?>">
                     <tr>
                         <td class="td_card">Fila: </td>
                         <td class="td_card">
